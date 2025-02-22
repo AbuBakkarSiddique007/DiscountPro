@@ -1,6 +1,20 @@
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+
+    // <li><NavLink to="/">Home</NavLink></li>
+    // <li><NavLink to="/brands" >Brands</NavLink></li>
+    // <li><NavLink >My Profile</NavLink></li>
+    // <li><NavLink >About Dev</NavLink></li>
+
+    const links = <>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/brands" >Brands</NavLink></li>
+        <li><NavLink >My Profile</NavLink></li>
+        <li><NavLink >About Dev</NavLink></li>
+
+    </>
+
     return (
         <div>
             <div className="navbar bg-gray-800 text-white shadow-md px-4">
@@ -12,10 +26,9 @@ const Navbar = () => {
                             </svg>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content bg-gray-800 text-white rounded-box z-10 mt-3 w-52 p-2 shadow">
-                            <li><NavLink to="/">Home</NavLink></li>
-                            <li><NavLink >Brands</NavLink></li>
-                            <li><NavLink >My Profile</NavLink></li>
-                            <li><NavLink >About Dev</NavLink></li>
+                            {
+                                links
+                            }
                         </ul>
                     </div>
                     <NavLink to="/" className="flex items-center gap-2">
@@ -26,10 +39,9 @@ const Navbar = () => {
 
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><NavLink to="/">Home</NavLink></li>
-                        <li><NavLink >Brands</NavLink></li>
-                        <li><NavLink >My Profile</NavLink></li>
-                        <li><NavLink >About Dev</NavLink></li>
+                        {
+                            links
+                        }
                     </ul>
                 </div>
 

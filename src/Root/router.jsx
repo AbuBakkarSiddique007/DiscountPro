@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../MainLayout/MainLayout";
 import Home from "../components/Home/Home";
 import BrandDetails from "../components/BrandDetails/BrandDetails";
+import BrandsPage from "../components/BrandsPage/BrandsPage";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +27,16 @@ const router = createBrowserRouter([
                             return { brand };
                         });
                 }
+            },
+            {
+                path: "/brands",
+                element: <BrandsPage></BrandsPage>,
+                loader: () => fetch("/FakeData.json")
+            },
+            {
+                path: "*",
+                element: <ErrorPage></ErrorPage>
+                
             }
         ]
 
