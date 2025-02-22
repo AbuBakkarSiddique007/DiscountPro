@@ -5,6 +5,7 @@ import TopBrands from "../TopBrands/TopBrands";
 import PopularCategories from "../PopularCategories/PopularCategories";
 import SaveMoreTips from "../SaveMoreTips/SaveMoreTips";
 import Review from "../Review/Review";
+import Footer from "../Footer/Footer";
 
 
 const Home = () => {
@@ -37,6 +38,10 @@ const Home = () => {
 
             <div>
                 <Review></Review>
+            </div>
+
+            <div>
+                <Footer></Footer>
             </div>
 
         </div>
