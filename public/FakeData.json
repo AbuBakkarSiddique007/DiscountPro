@@ -1,0 +1,193 @@
+[
+    {
+      "_id": "1",
+      "brand_name": "Amazon",
+      "rating": 4.9,
+      "description": "The world's largest online retailer with deals on everything.",
+      "brand_logo": "https://i.ibb.co.com/bRmTSr7K/icons8-amazon-16.png",
+      "coupons": [
+        {
+          "coupon_code": "AMAZON20",
+          "description": "20% off on selected electronics",
+          "expiry_date": "2025-06-30",
+          "condition": "Minimum purchase of $50 required",
+          "coupon_type": "Percentage"
+        }
+      ],
+      "shop_link": "https://amazon.com",
+      "category": "E-commerce",
+      "isSaleOn": true
+    },
+    {
+      "_id": "2",
+      "brand_name": "Nike",
+      "rating": 4.8,
+      "description": "Global leader in sportswear and footwear.",
+      "brand_logo": "https://i.ibb.co.com/mV1PRFRs/icons8-nike-16.png",
+      "coupons": [
+        {
+          "coupon_code": "NIKE15",
+          "description": "15% off on all running shoes",
+          "expiry_date": "2025-07-15",
+          "condition": "Applicable for online orders only",
+          "coupon_type": "Percentage"
+        }
+      ],
+      "shop_link": "https://nike.com",
+      "category": "Sportswear",
+      "isSaleOn": true
+    },
+    {
+      "_id": "3",
+      "brand_name": "Adidas",
+      "rating": 4.7,
+      "description": "High-performance sportswear and casual fashion.",
+      "brand_logo": "https://i.ibb.co.com/5gtXwhHN/icons8-adidas-16.png",
+      "coupons": [
+        {
+          "coupon_code": "ADIDAS25",
+          "description": "Flat 25% off on Adidas Originals",
+          "expiry_date": "2025-08-10",
+          "condition": "Limited time offer",
+          "coupon_type": "Flat Discount"
+        }
+      ],
+      "shop_link": "https://adidas.com",
+      "category": "Fashion",
+      "isSaleOn": false
+    },
+    {
+      "_id": "4",
+      "brand_name": "Walmart",
+      "rating": 4.6,
+      "description": "Everyday low prices on groceries, electronics, and more.",
+      "brand_logo": "https://i.ibb.co.com/84tL1LbY/icons8-walmart-16.png",
+      "coupons": [
+        {
+          "coupon_code": "SAVE10",
+          "description": "10% off on groceries",
+          "expiry_date": "2025-09-05",
+          "condition": "Valid for online orders only",
+          "coupon_type": "Percentage"
+        }
+      ],
+      "shop_link": "https://walmart.com",
+      "category": "Retail",
+      "isSaleOn": true
+    },
+    {
+      "_id": "5",
+      "brand_name": "Sephora",
+      "rating": 4.9,
+      "description": "Your beauty destination for makeup, skincare, and more.",
+      "brand_logo": "https://i.ibb.co.com/CpYwrhbz/icons8-sephora-16.png",
+      "coupons": [
+        {
+          "coupon_code": "BEAUTY30",
+          "description": "30% off on luxury skincare",
+          "expiry_date": "2025-05-20",
+          "condition": "Excludes gift sets",
+          "coupon_type": "Percentage"
+        }
+      ],
+      "shop_link": "https://sephora.com",
+      "category": "Beauty",
+      "isSaleOn": true
+    },
+    {
+      "_id": "6",
+      "brand_name": "Apple",
+      "rating": 4.8,
+      "description": "Latest iPhones, MacBooks, and premium accessories.",
+      "brand_logo": "https://i.ibb.co.com/23vdfxZX/icons8-apple-16.png",
+      "coupons": [
+        {
+          "coupon_code": "APPLE100",
+          "description": "$100 off on MacBook Pro",
+          "expiry_date": "2025-11-30",
+          "condition": "Available on selected models only",
+          "coupon_type": "Flat Discount"
+        }
+      ],
+      "shop_link": "https://apple.com",
+      "category": "Electronics",
+      "isSaleOn": false
+    },
+    {
+      "_id": "7",
+      "brand_name": "Samsung",
+      "rating": 4.7,
+      "description": "Leading brand in smartphones, TVs, and home appliances.",
+      "brand_logo": "https://i.ibb.co.com/Xf3nBCJh/icons8-samsung-16.png",
+      "coupons": [
+        {
+          "coupon_code": "SAMSUNG50",
+          "description": "$50 off on Galaxy smartphones",
+          "expiry_date": "2025-12-15",
+          "condition": "Valid on purchases above $500",
+          "coupon_type": "Flat Discount"
+        }
+      ],
+      "shop_link": "https://samsung.com",
+      "category": "Electronics",
+      "isSaleOn": true
+    },
+    {
+      "_id": "8",
+      "brand_name": "Zara",
+      "rating": 4.6,
+      "description": "Trendy fashion collections for men and women.",
+      "brand_logo": "https://i.ibb.co.com/wNgFpzB4/icons8-zara-16.png",
+      "coupons": [
+        {
+          "coupon_code": "ZARA20",
+          "description": "20% off on new arrivals",
+          "expiry_date": "2025-09-25",
+          "condition": "Limited stock available",
+          "coupon_type": "Percentage"
+        }
+      ],
+      "shop_link": "https://zara.com",
+      "category": "Fashion",
+      "isSaleOn": false
+    },
+    {
+      "_id": "9",
+      "brand_name": "Uber",
+      "rating": 4.5,
+      "description": "Affordable and convenient rides worldwide.",
+      "brand_logo": "https://i.ibb.co.com/21KtkQnL/icons8-uber-16.png",
+      "coupons": [
+        {
+          "coupon_code": "UBERFIRST",
+          "description": "50% off on first ride",
+          "expiry_date": "2025-06-15",
+          "condition": "Valid for new users only",
+          "coupon_type": "Flat Discount"
+        }
+      ],
+      "shop_link": "https://uber.com",
+      "category": "Transport",
+      "isSaleOn": true
+    },
+    {
+      "_id": "10",
+      "brand_name": "McDonald's",
+      "rating": 4.6,
+      "description": "Enjoy the best burgers, fries, and fast food.",
+      "brand_logo": "https://i.ibb.co.com/kgF1K14Z/icons8-mcdonald-s-french-fries-16.png",
+      "coupons": [
+        {
+          "coupon_code": "BIGMAC50",
+          "description": "Buy 1 Big Mac, get 1 free",
+          "expiry_date": "2025-07-31",
+          "condition": "Valid only at participating outlets",
+          "coupon_type": "Buy 1 Get 1"
+        }
+      ],
+      "shop_link": "https://mcdonalds.com",
+      "category": "Food",
+      "isSaleOn": true
+    }
+  ]
+  
