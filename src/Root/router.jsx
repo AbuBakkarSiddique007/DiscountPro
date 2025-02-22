@@ -4,6 +4,7 @@ import Home from "../components/Home/Home";
 import BrandDetails from "../components/BrandDetails/BrandDetails";
 import BrandsPage from "../components/BrandsPage/BrandsPage";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import AboutDev from "../components/AboutDev/AboutDev";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
                 path: "/brands",
                 element: <BrandsPage></BrandsPage>,
                 loader: () => fetch("/FakeData.json")
+            },
+            {
+                path: "/aboutDev",
+                element: <AboutDev></AboutDev>
+
             },
             {
                 path: "*",

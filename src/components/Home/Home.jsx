@@ -40,9 +40,6 @@ const Home = () => {
             <div>
                 <Review></Review>
             </div>
-            <div>
-                <AboutDev></AboutDev>
-            </div>
 
             <div>
                 <Footer></Footer>
