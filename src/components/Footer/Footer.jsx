@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-horizontal footer-center bg-gray-800 text-white rounded p-10">
+            <footer className="footer footer-horizontal footer-center bg-gray-800 text-white rounded">
 
                 <nav className="grid grid-flow-col gap-4">
                     <NavLink to="/about" className="link link-hover">About Us</NavLink>
@@ -33,7 +33,7 @@ const Footer = () => {
                 </nav>
 
                 <aside>
-                    <p>Copyright © {new Date().getFullYear()} - All rights reserved by <strong>CouponHive </strong></p>
+                    <p>Copyright © {new Date().getFullYear()} - All rights reserved by <strong>DiscountPro </strong></p>
                 </aside>
             </footer>
 
