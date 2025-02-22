@@ -2,6 +2,9 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import BrandsOnSell from "../BrandsOnSell/BrandsOnSell";
 import TopBrands from "../TopBrands/TopBrands";
+import PopularCategories from "../PopularCategories/PopularCategories";
+import SaveMoreTips from "../SaveMoreTips/SaveMoreTips";
+import Review from "../Review/Review";
 
 
 const Home = () => {
@@ -21,15 +24,20 @@ const Home = () => {
             </div>
 
             <div>
-                <BrandsOnSell></BrandsOnSell>
+                <BrandsOnSell loaderData={loaderData} ></BrandsOnSell>
             </div>
 
-            <h1>
-                Extra 1 goes here
-            </h1>
-            <h1>
-                Extra 2 goes here
-            </h1>
+            <div>
+                <PopularCategories></PopularCategories>
+            </div>
+
+            <div>
+                <SaveMoreTips></SaveMoreTips>
+            </div>
+
+            <div>
+                <Review></Review>
+            </div>
 
         </div>
     );
