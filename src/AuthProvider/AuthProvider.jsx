@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.init";
 
@@ -40,6 +40,28 @@ const AuthProvider = (props) => {
         })
     }
 
+
+    const resetPassword = async (email) => {
+        if (!email) {
+            alert("Please enter your email address.");
+            return;
+        }
+
+        try {
+            await sendPasswordResetEmail(auth, email);
+            console.log("Password reset email sent to:", email);
+
+
+            await signOut(auth);
+            console.log("User logged out.");
+
+            window.open("https://mail.google.com", "_blank");
+        } catch (error) {
+            console.error("Error resetting password:", error);
+            alert("Failed to send reset email. Please try again.");
+        }
+    };
+
     const authInfo = {
         handleRegister,
         handleLogin,
@@ -48,7 +70,8 @@ const AuthProvider = (props) => {
         manageUserProfile,
         user,
         setUser,
-        loading
+        loading,
+        resetPassword
     }
 
     useEffect(() => {

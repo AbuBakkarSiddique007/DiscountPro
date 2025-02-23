@@ -7,6 +7,7 @@ const Login = () => {
     const { handleGoogleLogin, handleLogin } = useContext(AuthContext);
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState("");
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -59,6 +60,10 @@ const Login = () => {
                             type="email"
                             name="email"
                             placeholder="Email Address"
+
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900 mt-3"
                         />
 
@@ -76,6 +81,12 @@ const Login = () => {
                             >
                                 {showPassword ? <FaEyeSlash /> : <FaEye />}
                             </button>
+                        </div>
+
+                        <div className="text-right mt-2">
+                            <NavLink to={`/forgot-password?email=${encodeURIComponent(email)}`} className="text-blue-500 text-sm">
+                                Forgot Password?
+                            </NavLink>
                         </div>
 
                         <button
