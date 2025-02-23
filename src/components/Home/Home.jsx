@@ -1,4 +1,8 @@
+import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import Banner from "../Banner/Banner";
 import BrandsOnSell from "../BrandsOnSell/BrandsOnSell";
 import TopBrands from "../TopBrands/TopBrands";
@@ -6,45 +10,47 @@ import PopularCategories from "../PopularCategories/PopularCategories";
 import SaveMoreTips from "../SaveMoreTips/SaveMoreTips";
 import Review from "../Review/Review";
 import Footer from "../Footer/Footer";
-import AboutDev from "../AboutDev/AboutDev";
-
 
 const Home = () => {
-
     const loaderData = useLoaderData();
     console.log(loaderData);
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, 
+            once: true,
+        });
+    }, []);
 
     return (
         <div className="border-2 border-blue-300">
-            <div>
-                <Banner></Banner>
+            <div data-aos="fade-up">
+                <Banner />
             </div>
 
-            <div>
-                <TopBrands loaderData={loaderData} ></TopBrands>
+            <div data-aos="fade-right">
+                <TopBrands loaderData={loaderData} />
             </div>
 
-            <div>
-                <BrandsOnSell loaderData={loaderData} ></BrandsOnSell>
+            <div data-aos="fade-left">
+                <BrandsOnSell loaderData={loaderData} />
             </div>
 
-            <div>
-                <PopularCategories></PopularCategories>
+            <div data-aos="zoom-in">
+                <PopularCategories />
             </div>
 
-            <div>
-                <SaveMoreTips></SaveMoreTips>
+            <div data-aos="flip-up">
+                <SaveMoreTips />
             </div>
 
-            <div>
-                <Review></Review>
+            <div data-aos="fade-up">
+                <Review />
             </div>
 
-            <div>
-                <Footer></Footer>
+            <div data-aos="fade-in">
+                <Footer />
             </div>
-
         </div>
     );
 };
