@@ -5,6 +5,10 @@ import BrandDetails from "../components/BrandDetails/BrandDetails";
 import BrandsPage from "../components/BrandsPage/BrandsPage";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import AboutDev from "../components/AboutDev/AboutDev";
+import Login from "../components/Login/Login";
+import Register from "../components/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import MyProfile from "../components/MyProfile/MyProfile";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +23,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "/brand/:_id",
-                element: <BrandDetails></BrandDetails>,
+                element: <PrivateRoute>
+                    <BrandDetails></BrandDetails>
+                </PrivateRoute>,
                 loader: ({ params }) => {
                     return fetch(`/FakeData.json`)
                         .then((res) => res.json())
@@ -35,14 +41,28 @@ const router = createBrowserRouter([
                 loader: () => fetch("/FakeData.json")
             },
             {
+                path: "/myProfile",
+                element: <PrivateRoute>
+                    <MyProfile></MyProfile>
+                </PrivateRoute>
+            },
+            {
                 path: "/aboutDev",
                 element: <AboutDev></AboutDev>
 
             },
             {
+                path: "/login",
+                element: <Login></Login>
+            },
+            {
+                path: "/register",
+                element: <Register></Register>
+            },
+            {
                 path: "*",
                 element: <ErrorPage></ErrorPage>
-                
+
             }
         ]
 
