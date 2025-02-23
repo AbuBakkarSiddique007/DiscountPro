@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,21 +10,29 @@ import PopularCategories from "../PopularCategories/PopularCategories";
 import SaveMoreTips from "../SaveMoreTips/SaveMoreTips";
 import Review from "../Review/Review";
 import Footer from "../Footer/Footer";
+import WelcomeText from "../WelcomeText/WelcomeText";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Home = () => {
+    const { user } = useContext(AuthContext);
     const loaderData = useLoaderData();
-    console.log(loaderData);
 
     useEffect(() => {
         AOS.init({
             duration: 1000, 
-            once: true,
+            once: true, 
         });
+
+        AOS.refresh(); 
     }, []);
 
     return (
         <div className="border-2 border-blue-300">
-            <div data-aos="fade-up">
+            <div data-aos="fade-down">
+                <WelcomeText user={user} />
+            </div>
+
+            <div data-aos="zoom-in">
                 <Banner />
             </div>
 
@@ -40,17 +48,15 @@ const Home = () => {
                 <PopularCategories />
             </div>
 
-            <div data-aos="flip-up">
+            <div data-aos="fade-up">
                 <SaveMoreTips />
             </div>
 
-            <div data-aos="fade-up">
+            <div data-aos="flip-left">
                 <Review />
             </div>
 
-            <div data-aos="fade-in">
-                <Footer />
-            </div>
+            <Footer />
         </div>
     );
 };
