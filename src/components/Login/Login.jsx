@@ -1,11 +1,12 @@
 import { useContext, useState } from 'react';
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
     const { handleGoogleLogin, handleLogin } = useContext(AuthContext);
-    const [error, setError] = useState(""); 
+    const [error, setError] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -14,7 +15,7 @@ const Login = () => {
 
     const handleLoginForm = (e) => {
         e.preventDefault();
-        setError(""); 
+        setError("");
 
         const email = e.target.email.value;
         const password = e.target.password.value;
@@ -22,7 +23,7 @@ const Login = () => {
         handleLogin(email, password)
             .then((userCredential) => {
                 console.log("User logged in successfully: ", userCredential);
-                navigate(from, { replace: true }); 
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.error("Error logging in: ", error);
@@ -31,7 +32,7 @@ const Login = () => {
     };
 
     const handleGoogleSignIn = () => {
-        setError(""); 
+        setError("");
 
         handleGoogleLogin()
             .then((userCredential) => {
@@ -61,12 +62,21 @@ const Login = () => {
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900 mt-3"
                         />
 
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900 mt-2"
-                        />
+                        <div className="relative mt-2">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                placeholder="Password"
+                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900"
+                            />
+                            <button
+                                type="button"
+                                className="absolute inset-y-0 right-3 flex items-center text-gray-600"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            </button>
+                        </div>
 
                         <button
                             type="submit"
