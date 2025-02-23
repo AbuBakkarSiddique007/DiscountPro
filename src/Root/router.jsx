@@ -10,6 +10,7 @@ import Register from "../components/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyProfile from "../components/MyProfile/MyProfile";
 import ForgotPassword from "../components/ForgotPassword/ForgotPassword";
+import UpdateProfile from "../components/UpdateProfile/UpdateProfile";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
                 </PrivateRoute>
             },
             {
+                path: "/update-profile",
+                element: <UpdateProfile></UpdateProfile>
+            },
+            {
                 path: "/aboutDev",
                 element: <AboutDev></AboutDev>
 
@@ -65,6 +70,7 @@ const router = createBrowserRouter([
                 element: <ForgotPassword></ForgotPassword>
 
             },
+
             {
                 path: "*",
                 element: <ErrorPage></ErrorPage>

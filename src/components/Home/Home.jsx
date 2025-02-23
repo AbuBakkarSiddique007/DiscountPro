@@ -12,6 +12,8 @@ import Review from "../Review/Review";
 import Footer from "../Footer/Footer";
 import WelcomeText from "../WelcomeText/WelcomeText";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
     const { user } = useContext(AuthContext);
@@ -19,15 +21,15 @@ const Home = () => {
 
     useEffect(() => {
         AOS.init({
-            duration: 1000, 
-            once: true, 
+            duration: 1000,
+            once: true,
         });
 
-        AOS.refresh(); 
+        AOS.refresh();
     }, []);
 
     return (
-        <div className="border-2 border-blue-300">
+        <div className="">
             <div data-aos="fade-down">
                 <WelcomeText user={user} />
             </div>
@@ -56,7 +58,14 @@ const Home = () => {
                 <Review />
             </div>
 
-            <Footer />
+            <div>
+                <Footer />
+
+            </div>
+            
+            <div>
+                <ToastContainer />
+            </div>
         </div>
     );
 };

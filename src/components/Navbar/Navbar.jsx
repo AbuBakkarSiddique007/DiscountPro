@@ -1,16 +1,48 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { AiFillHome } from "react-icons/ai";
+import { FaTags, FaUserCircle } from "react-icons/fa";
+import { MdInfo } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Navbar = () => {
     const { user, handleLogout } = useContext(AuthContext);
 
+    // const links = (
+    //     <>
+    //         <li><NavLink to="/">Home</NavLink></li>
+    //         <li><NavLink to="/brands">Brands</NavLink></li>
+    //         {user?.email && <li><NavLink to="/myProfile">My Profile</NavLink></li>}
+    //         <li><NavLink to="/aboutDev">About Dev</NavLink></li>
+    //     </>
+    // );
+
     const links = (
         <>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/brands">Brands</NavLink></li>
-            {user?.email && <li><NavLink to="/myProfile">My Profile</NavLink></li>}
-            <li><NavLink to="/aboutDev">About Dev</NavLink></li>
+            <li data-aos="fade-down">
+                <NavLink to="/" className={({ isActive }) => isActive ? "text-blue-500 font-bold" : ""}>
+                    <AiFillHome className="inline-block mr-2" /> Home
+                </NavLink>
+            </li>
+            <li data-aos="fade-down">
+                <NavLink to="/brands" className={({ isActive }) => isActive ? "text-blue-500 font-bold" : ""}>
+                    <FaTags className="inline-block mr-2" /> Brands
+                </NavLink>
+            </li>
+            {user?.email && (
+                <li data-aos="fade-down">
+                    <NavLink to="/myProfile" className={({ isActive }) => isActive ? "text-blue-500 font-bold" : ""}>
+                        <FaUserCircle className="inline-block mr-2" /> My Profile
+                    </NavLink>
+                </li>
+            )}
+            <li data-aos="fade-down">
+                <NavLink to="/aboutDev" className={({ isActive }) => isActive ? "text-blue-500 font-bold" : ""}>
+                    <MdInfo className="inline-block mr-2" /> About Dev
+                </NavLink>
+            </li>
         </>
     );
 

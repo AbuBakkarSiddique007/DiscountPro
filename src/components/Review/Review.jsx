@@ -31,7 +31,7 @@ const reviews = [
 
 const Review = () => {
     return (
-        <section className="py-12 bg-gradient-to-b from-gray-50 to-gray-200">
+        <section className="py-20 bg-gray-100">
             <h2 className="text-3xl font-bold text-center mb-8 text-gray-800"> What Our Users Say</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
                 {reviews.map((user) => (

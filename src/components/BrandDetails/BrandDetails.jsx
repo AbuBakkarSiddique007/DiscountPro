@@ -1,4 +1,5 @@
 import { useLoaderData } from 'react-router-dom';
+import { CopyToClipboard } from 'react-copy-to-clipboard'; // Import CopyToClipboard
 
 const BrandDetails = () => {
     const brand = useLoaderData();
@@ -22,15 +23,18 @@ const BrandDetails = () => {
                     {coupons.map((coupon, index) => (
                         <div key={index} className="border p-4 rounded-lg shadow-md">
                             <p className="text-lg font-medium">{coupon.description}</p>
-                            <p className="text-gray-600">Code: <span className="font-bold">{coupon.coupon_code}</span></p>
+                            <div className="flex justify-between items-center mt-2">
+                                <p className="text-gray-600">
+                                    Code: <span className="font-bold">{coupon.coupon_code}</span>
+                                </p>
+                                <CopyToClipboard text={coupon.coupon_code} onCopy={() => alert("Coupon code copied!")}>
+                                    <button className="ml-2 bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600">
+                                        Copy Code
+                                    </button>
+                                </CopyToClipboard>
+                            </div>
                             <p className="text-gray-500">Expiry: {coupon.expiry_date}</p>
                             <p className="text-gray-500">Condition: {coupon.condition}</p>
-                            <button
-                                className="mt-2 bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600"
-                                onClick={() => navigator.clipboard.writeText(coupon.coupon_code)}
-                            >
-                                Copy Code
-                            </button>
                             <a
                                 href={shop_link}
                                 target="_blank"

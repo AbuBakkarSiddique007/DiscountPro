@@ -11,9 +11,9 @@ const TopBrands = ({ loaderData }) => {
 
     return (
         <div>
-            <section className="my-10 text-center">
+            <section className="my-10 text-center ml-10 mr-10 bg-gray-100 rounded-lg">
 
-                <h2 className="text-3xl font-bold mb-5">Get the Best Shopping Coupons in Bangladesh!</h2>
+                <h2 className="text-3xl font-bold mb-10">Get the Best Shopping Coupons in Bangladesh!</h2>
 
                 <div className="overflow-hidden">
                     <Marquee pauseOnHover speed={50}>

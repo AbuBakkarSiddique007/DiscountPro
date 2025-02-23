@@ -34,11 +34,20 @@ const AuthProvider = (props) => {
         return signInWithPopup(auth, googleProvider);
     }
 
-    const manageUserProfile = (name, image) => {
-        return updateProfile(auth.currentUser, {
+    // const manageUserProfile = (name, image) => {
+    //     return updateProfile(auth.currentUser, {
+    //         displayName: name, photoURL: image
+    //     })
+    // }
+
+    const manageUserProfile = async (name, image) => {
+        await updateProfile(auth.currentUser, {
             displayName: name, photoURL: image
-        })
+        });
+        const updatedUser = { ...auth.currentUser, displayName: name, photoURL: image };
+        setUser(updatedUser);
     }
+
 
 
     const resetPassword = async (email) => {
@@ -51,7 +60,7 @@ const AuthProvider = (props) => {
             await sendPasswordResetEmail(auth, email);
             console.log("Password reset email sent to:", email);
 
-
+            // Log out the user
             await signOut(auth);
             console.log("User logged out.");
 
