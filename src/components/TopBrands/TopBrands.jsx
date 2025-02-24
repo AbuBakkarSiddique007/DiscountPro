@@ -2,11 +2,8 @@ import Marquee from "react-fast-marquee";
 import { NavLink } from "react-router-dom";
 
 const TopBrands = ({ loaderData }) => {
-    console.log(loaderData);
 
     const brands = loaderData
-
-
 
 
     return (

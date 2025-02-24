@@ -64,7 +64,7 @@ const Home = () => {
             </div>
             
             <div>
-                <ToastContainer />
+            <ToastContainer position="top-right" autoClose={2000} />
             </div>
         </div>
     );

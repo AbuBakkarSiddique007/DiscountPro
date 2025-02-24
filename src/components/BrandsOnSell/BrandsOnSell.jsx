@@ -1,5 +1,4 @@
 const BrandsOnSell = ({ loaderData }) => {
-    console.log(loaderData);
 
     const brandsOnSell = loaderData.filter(brand => brand.isSaleOn);
 

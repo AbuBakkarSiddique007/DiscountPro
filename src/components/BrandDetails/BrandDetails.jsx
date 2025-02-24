@@ -1,5 +1,8 @@
 import { useLoaderData } from 'react-router-dom';
-import { CopyToClipboard } from 'react-copy-to-clipboard'; // Import CopyToClipboard
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const BrandDetails = () => {
     const brand = useLoaderData();
@@ -27,7 +30,7 @@ const BrandDetails = () => {
                                 <p className="text-gray-600">
                                     Code: <span className="font-bold">{coupon.coupon_code}</span>
                                 </p>
-                                <CopyToClipboard text={coupon.coupon_code} onCopy={() => alert("Coupon code copied!")}>
+                                <CopyToClipboard text={coupon.coupon_code} onCopy={() => toast.success("Coupon code copied!")}>
                                     <button className="ml-2 bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600">
                                         Copy Code
                                     </button>
@@ -59,6 +62,7 @@ const BrandDetails = () => {
                     Visit Store
                 </a>
             </div>
+            <ToastContainer position="top-right" autoClose={2000} />
         </div>
     );
 };

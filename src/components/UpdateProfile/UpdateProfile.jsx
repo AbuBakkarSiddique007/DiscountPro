@@ -1,6 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UpdateProfile = () => {
     const { user, manageUserProfile } = useContext(AuthContext);
@@ -12,11 +15,11 @@ const UpdateProfile = () => {
         e.preventDefault();
         try {
             await manageUserProfile(name, photoURL);
-            alert("Profile updated successfully!");
+            toast.success("Profile updated successfully!");            
             navigate("/myProfile");
         } catch (error) {
             console.error("Error updating profile:", error);
-            alert("Failed to update profile. Please try again.");
+            toast.error("Failed to update profile. Please try again.");
         }
     };
 
@@ -51,6 +54,7 @@ const UpdateProfile = () => {
                     Update Information
                 </button>
             </form>
+            <ToastContainer position="top-right" autoClose={2000} />
         </div>
     );
 };

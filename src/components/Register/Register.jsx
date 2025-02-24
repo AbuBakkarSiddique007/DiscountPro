@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useNavigate, Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
@@ -28,18 +28,18 @@ const Register = () => {
         try {
             const userCredential = await handleRegister(email, password);
             await manageUserProfile(name, image);
-            toast.success("✅ Registration successful! Redirecting to Home...", { autoClose: 2000 });
+            toast.success("Registration successful! Redirecting to Home...", { autoClose: 2000 });
             setTimeout(() => navigate("/"), 2000);
         } catch (error) {
             setError(error.message);
-            toast.error(`❌ Registration failed: ${error.message}`, { autoClose: 2000 });
+            toast.error(`Registration failed: ${error.message}`, { autoClose: 2000 });
         }
     };
 
     const handleGoogleSignIn = async () => {
         try {
             await handleGoogleLogin();
-            toast.success("✅ Google login successful! Redirecting to Home...", { autoClose: 2000 });
+            toast.success("Google login successful! Redirecting to Home...", { autoClose: 2000 });
             setTimeout(() => navigate("/"), 2000);
         } catch (error) {
             setError(error.message);
@@ -71,6 +71,7 @@ const Register = () => {
 
                 <p className="text-center mt-4">Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Login here</Link></p>
             </div>
+            <ToastContainer position="top-right" autoClose={2000} />
         </div>
     );
 };
