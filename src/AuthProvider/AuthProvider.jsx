@@ -8,7 +8,6 @@ export const AuthContext = createContext();
 const AuthProvider = (props) => {
 
     const { router } = props;
-    console.log(router);
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -34,12 +33,6 @@ const AuthProvider = (props) => {
         return signInWithPopup(auth, googleProvider);
     }
 
-    // const manageUserProfile = (name, image) => {
-    //     return updateProfile(auth.currentUser, {
-    //         displayName: name, photoURL: image
-    //     })
-    // }
-
     const manageUserProfile = async (name, image) => {
         await updateProfile(auth.currentUser, {
             displayName: name, photoURL: image
@@ -47,8 +40,6 @@ const AuthProvider = (props) => {
         const updatedUser = { ...auth.currentUser, displayName: name, photoURL: image };
         setUser(updatedUser);
     }
-
-
 
     const resetPassword = async (email) => {
         if (!email) {
@@ -58,11 +49,7 @@ const AuthProvider = (props) => {
 
         try {
             await sendPasswordResetEmail(auth, email);
-            console.log("Password reset email sent to:", email);
-
-            // Log out the user
             await signOut(auth);
-            console.log("User logged out.");
 
             window.open("https://mail.google.com", "_blank");
         } catch (error) {
@@ -85,7 +72,6 @@ const AuthProvider = (props) => {
 
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser);
             if (currentUser) {
                 setUser(currentUser);
             } else {

@@ -22,11 +22,9 @@ const Login = () => {
 
         handleLogin(email, password)
             .then((userCredential) => {
-                console.log("User logged in successfully: ", userCredential);
                 navigate(from, { replace: true });
             })
             .catch((error) => {
-                console.error("Error logging in: ", error);
                 setError("❌ Invalid email or password. Please try again.");
             });
     };
@@ -36,7 +34,6 @@ const Login = () => {
 
         handleGoogleLogin()
             .then((userCredential) => {
-                console.log("User logged in with Google: ", userCredential);
                 navigate(from, { replace: true });
             })
             .catch((error) => {
